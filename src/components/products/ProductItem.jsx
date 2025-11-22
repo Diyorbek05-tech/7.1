@@ -11,34 +11,33 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <div className="border rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col md:flex-row gap-4 items-center bg-white">
-      
+    <div className="border rounded-xl shadow-md hover:shadow-xl transition p-4 flex flex-col md:flex-row gap-4 items-center bg-white">
       {isEditing ? (
-        <div className="flex-1 flex flex-col gap-2">
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
           <input
             value={editData.name}
             onChange={(e) => dispatch(setEditData({ name: e.target.value }))}
-            className="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-400"
             placeholder="Mahsulot nomi"
           />
           <input
             type="number"
             value={editData.price}
             onChange={(e) => dispatch(setEditData({ price: e.target.value }))}
-            className="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-400"
             placeholder="Narxi"
           />
           <input
             type="number"
             value={editData.quantity}
             onChange={(e) => dispatch(setEditData({ quantity: e.target.value }))}
-            className="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-400"
             placeholder="Miqdori"
           />
           <input
             value={editData.image}
             onChange={(e) => dispatch(setEditData({ image: e.target.value }))}
-            className="border rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="border rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-400"
             placeholder="Rasm linki"
           />
         </div>
@@ -47,12 +46,12 @@ const ProductItem = ({ product }) => {
           <img
             src={product.image}
             alt={product.name}
-            className="w-24 h-24 object-cover rounded-lg shadow"
+            className="w-28 h-28 object-cover rounded-xl shadow"
           />
           <div className="flex flex-col">
-            <p className="font-bold text-lg">{product.name}</p>
-            <p className="text-gray-700">Narxi: ${product.price}</p>
-            <p className="text-gray-700">Miqdori: {product.quantity}</p>
+            <p className="font-bold text-lg text-gray-800">{product.name}</p>
+            <p className="text-gray-600">Narxi: ${product.price}</p>
+            <p className="text-gray-600">Miqdori: {product.quantity}</p>
           </div>
         </div>
       )}
@@ -62,13 +61,13 @@ const ProductItem = ({ product }) => {
           <>
             <button
               onClick={handleSave}
-              className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition"
+              className="bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600 transition"
             >
               Save
             </button>
             <button
               onClick={() => dispatch(cancelEdit())}
-              className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+              className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition"
             >
               Cancel
             </button>
@@ -77,13 +76,13 @@ const ProductItem = ({ product }) => {
           <>
             <button
               onClick={() => dispatch(setEditProduct({ id: product.id, data: product }))}
-              className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition"
+              className="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition"
             >
               Edit
             </button>
             <button
               onClick={() => dispatch(deleteProduct(product.id))}
-              className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+              className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition"
             >
               Delete
             </button>
